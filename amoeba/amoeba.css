@@ -1,0 +1,223 @@
+@font-face {
+	font-family: "terminal"; 
+	src: url("fonts/terminal-grotesque_open.otf") format("opentype");
+}
+@font-face {
+	font-family: "degheest"; 
+	src: url("fonts/Director-Regular.woff") format("woff");
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body { 
+	font-family: "degheest", serif; 
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(to right, #cfc2c2, #E0E2DB, #E0E2DB, #E0E2DB, #E0E2DB, #E0E2DB);
+	color: #2E3532;
+}
+
+* { 
+	box-sizing: border-box;
+	scrollbar-color: #8B2635 #E0E2DB;
+}
+
+*::-webkit-scrollbar { width: 15px; }
+*::-webkit-scrollbar-track { background: #E0E2DB; }
+*::-webkit-scrollbar-thumb { background-color: #8B2635; border: transparent; }
+
+img { max-width: 100% }
+
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: right;
+	justify-content: right;
+}
+
+main {
+	margin: 10px auto;
+	max-width: 60rem;
+}
+
+section {
+	margin: 2em auto;
+	padding: 1em 2em;
+	border: 1px dashed #A9ABA1;
+	outline: 1px dotted #A9ABA1;
+	outline-offset: 5px;
+	max-width: calc(100% - 10px);
+}
+
+nav a, .up a {
+	color: #8B2635;
+	display: block;
+	border: 1px #8B2635 solid;
+	margin: 10px;
+	padding: 20px 5px 2px 50px;
+	text-decoration: none;
+	font-size: 30px;
+	background-color: rgb(0,0,0,0);
+}
+
+hr {
+	border: none;
+	border-top: 1px solid #2E3532;
+}
+
+header {
+	font-size: 50px;
+	margin: 10px;
+	display: flex;
+	justify-content: space-between;
+	font-family: 'terminal';
+	font-weight: normal;
+	color: #8B2635;
+	max-width: calc(100% - 20px);
+}
+
+header div { margin: 20px 10px 0 20px; text-shadow: 3px 3px #A9ABA1; }
+
+h1, h2, h3, h4, h5, h6, p, table, details, cite, pre, blockquote {
+	margin: 1rem 0;
+}
+
+h1, h2, h3, a { font-family: 'terminal'; font-weight: normal; }
+
+a { color: #8B2635; padding: 2px 4px; font-size: 1.25em; }
+
+ul, ol {
+	margin: 1rem 0 1rem 1.5rem;
+}
+
+dl { margin: 1rem 0; }
+
+dt { 
+	background: linear-gradient(to right, #2E3532, #E0E2DB);
+	padding: 0.25rem 0.5rem;
+	color: #E0E2DB;
+}
+
+dd { padding: 1rem; }
+
+ul ul, ol ol { 
+	margin: 0 0 0 2rem;
+}
+
+p, table,  ul, ol, dl {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+a:hover { 
+	background-color: #8B2635;
+	color:#E0E2DB;
+}
+
+h6 { font-size: 1em; }
+h5 { font-size: 1.25em; }
+h4 { font-size: 1.5em; }
+h3 { font-size: 2.5em; }
+h2 { font-size: 3em; }
+h1 { font-size: 3.75em; text-align: center; }
+
+blockquote {
+	border-left: #8B2635 3px solid;
+	padding: 0 1rem;
+}
+
+cite { 
+	display: block;
+	text-align: right;
+}
+
+code, pre {
+	background-color: #2E3532;
+	color: #E0E2DB;
+}
+
+details { border: 1px solid; }
+
+code { 
+	font-family: 'Courier New', monospace; 
+	padding: 2px 4px;
+}
+
+details, pre {
+	padding: 1em;
+}
+
+pre { overflow-x: auto; }
+
+details p { margin: 0.5rem 0 0 2rem; }
+
+table {	border: 3px solid #2E3532; margin: 1rem auto; }
+tr, td, th { border: 1px solid #2E3532; }
+td, th { padding: 0.5rem }
+
+figure {  display: table; margin: 1rem; }
+
+figure img { margin: 5px auto; }
+
+figcaption { 
+	display: table-caption;
+    caption-side: bottom;
+    text-align: center;
+}
+
+footer { 
+	font-size: 0.8em;
+	text-align: center; 
+	padding: 5px 10px;
+	margin: 2rem;
+}
+
+.up { position: fixed;
+	bottom: 10px; right: 10px; }
+
+.flex-box {
+    display:flex;
+    flex-wrap:wrap;
+    margin: 0 auto;
+	padding: 0;
+	align-items: flex-start;
+}
+
+.flex-box section {
+	margin: 1em;
+	}
+
+.full { flex: 1 1 100%;}
+.half { flex: 1 1 calc(50% - 2em); }
+.third { flex: 1 1 calc(33% - 2em); }
+.twothird { flex: 1 1 calc(66% - 2em); }
+.quarter { flex: 1 1 calc(25% - 2em); }
+.threequarter { flex: 1 1 calc(75% - 2em); }
+
+
+@media screen and (max-width: 1270px){
+	.up { position: static; width: fit-content; margin: 10px auto; }
+}
+
+@media screen and (max-width: 700px){
+	header { flex-wrap: wrap; }
+	header div { margin: 5px; }
+	nav a {
+		margin: 5px;
+		padding: 15px 5px 2px 30px;
+		text-decoration: none;
+		font-size: 24px;
+	}
+	section {
+		margin: 1em auto;
+		padding: 0.5em 1em;
+	}
+	ul, ol {
+		margin: 1rem 0 1rem 0.5rem;
+	}
+	ul ul, ol ol { 
+		margin: 0 0 0 1rem;
+	}
+}
