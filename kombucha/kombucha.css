@@ -1,0 +1,234 @@
+/* quick customization */
+	:root {
+		--width: 900px; /* sets the maximum width of the middle section */
+		--headingfont: "Georgia"; 
+		--bodyfont: "Verdana"; 
+		--borderwidth: 7px;
+		--borderstyle: dotted;
+	}
+
+/* light mode colors */
+	:root {
+		--text: #463239;
+		--section: #FFFDED; /* background color for the middle section */
+		--border: #FFB17A;
+		--link: #A04668;
+		--bgimage: linear-gradient(var(--border),var(--link)); /* you could also use an image! formatting: url("example.png") */
+	}
+
+/* dark mode colors */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--text: #FFFDED;
+			--section: #463239; /* dark mode background color for the middle section */
+			--border: #C57B57;
+			--link: #F7BCBC;
+			--bgimage: linear-gradient(var(--link),var(--border)); /* you could also use an image! formatting: url("example.png") */
+		}
+	}
+	
+/* page layout */ 	
+	* { 
+		scrollbar-color: var(--link) var(--border);
+		overscroll-behavior: none;
+		box-sizing: border-box;
+		max-width: 100%; /* so everything adjusts on smaller screens */
+	}
+	body { 
+		margin: 0; padding: 0;
+		color: var(--text);
+		background: var(--border) var(--bgimage);
+		background-attachment: fixed;
+		font-family: var(--bodyfont), sans-serif;
+	}
+	.container { 
+		max-width: var(--width);
+		min-height: 100vh;
+		margin: 0 auto;
+		padding: 1rem calc(2.25rem + 1vw); 
+		background: var(--section); 
+		--mask: /* from https://css-generators.com/wavy-shapes/ */
+			radial-gradient(25.81px at 36px 50%,#000 99%,#0000 101%) 0 calc(50% - 30px)/51% 60px repeat-y,
+			radial-gradient(25.81px at -21px 50%,#0000 99%,#000 101%) 15px 50%/calc(51% - 15px) 60px repeat-y,
+			radial-gradient(25.81px at calc(100% - 36px) 50%,#000 99%,#0000 101%) 100% calc(50% - 30px)/51% 60px repeat-y,
+			radial-gradient(25.81px at calc(100% + 21px) 50%,#0000 99%,#000 101%) calc(100% - 15px) 50%/calc(51% - 15px) 60px repeat-y;
+		-webkit-mask: var(--mask);
+		mask: var(--mask);
+	}
+	main { 
+		margin: 1rem 0;
+	}
+	nav { 
+		margin: 1.5rem 0 1rem 0;
+		padding: 0.5rem 0 1rem 0;
+		border-top: var(--borderwidth) var(--borderstyle) var(--border);
+		border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
+	}
+	nav li { 
+		margin: 0.25rem;
+	}
+	footer {
+		padding: 1rem 0 1.5rem 0;
+	}
+	hr { 
+		border: 0;
+		border-top: var(--borderwidth) var(--borderstyle) var(--border);
+	}
+	.container > ul, footer p { 
+		margin: 0;
+		padding: 0;
+		text-align: right;
+	}
+	.container > ul li { 
+		list-style-type: none;
+		display: inline-block;
+		padding: 0 0.5rem;
+	}
+	
+/* headings */
+	h1, h2, h3, h4, nav p { 
+		font-family: var(--headingfont), serif;
+		line-height: 1;
+		font-weight: bold;
+		margin: 1rem 0;
+	}
+	h1 { 
+		font-size: calc(2.25rem + 2.5vw);
+		margin: 3rem 0 1.5rem 0;
+		border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
+		padding-bottom: 1rem;
+	}
+	h2, nav p { 
+		font-size: calc(1.75rem + 1.25vw);
+	}
+	h3 { 
+		font-size: calc(1.25rem + 1.125vw);
+	}
+	h4 { 
+		font-size: calc(1rem + 1vw);
+	}
+	
+/* link style */
+	a:link { 
+		color: var(--link);
+		text-underline-offset: 2px;
+		text-decoration-thickness: 2px;
+		text-decoration-color: var(--border);
+	}
+	a:visited { 
+		color: var(--text);
+		text-decoration-color: var(--border);
+	}
+	a:hover, a:focus { 
+		color: var(--link);
+		text-decoration-style: wavy;
+		text-decoration-thickness: 1px;
+	}
+	
+/* other page elements */
+	p, ul, ol, details, table {
+		margin: 1rem 0;
+	}
+	p, li, dd, dt, cite, code { 
+		line-height: 1.4;
+	}
+	sup, sub { 
+		line-height: 0.5;
+	}
+	s, del { 
+		text-decoration-color: var(--link); 
+		text-decoration-thickness: 2px;
+	}
+	ul ul, ol ul {
+		margin: 0;
+	}
+	ul li::marker { 
+		color: var(--border);
+		font-size: 125%;
+		line-height: 1;
+	}
+	ul ul li::marker, ol ul li::marker { 
+		color: var(--text);
+	}
+	figure { 
+		background: var(--border);
+		border: 10px solid var(--border);
+		border-radius: 8px;
+		margin: 1rem auto;
+		width: fit-content;
+		display: table;
+	}
+	figure img { 
+		border-radius: 5px;
+	}
+	figcaption { 
+		text-align: center;
+		display: table-caption;
+		caption-side: bottom;
+		background: var(--border);
+		border: 10px solid var(--border);
+		border-radius: 0 0 8px 8px;
+		margin-top: -10px;
+		padding: 0 10px 10px 10px;
+	}
+	figcaption a:link, figcaption a:visited {
+		text-decoration-color: var(--section);
+	}
+	table { 
+		max-width: 100%;
+		margin: 1rem auto;
+	}
+	th, td { 
+		border-radius: 8px;
+		padding: 3px 5px;
+	}
+	th { 
+		color: var(--section);
+		background: var(--link);
+		border: 2px solid var(--link);
+	}
+	td { 
+		border: 2px solid var(--border);
+	}
+	code { 
+		display: inline-block;
+		border: 2px solid var(--border);
+		border-radius: 8px;
+		padding: 2px 5px;
+	}
+	pre code { 
+		display: block;
+		overflow-x: auto;
+	}
+	blockquote {
+		border-left: var(--borderwidth) var(--borderstyle) var(--border);
+		margin: 1rem 0 1rem 1rem;
+		padding-left: 1rem;
+	}
+	details { 
+		background: var(--border);
+		border-radius: 8px;
+		padding: 1rem 2rem 1rem 1rem;
+	}
+	details summary { 
+		cursor: pointer;
+	}
+	details > *:not(summary) { 
+		margin-left: 1.5rem;
+	}
+	details ul li::marker {
+		color: var(--text);
+	}
+	details a:link, details a:visited {
+		text-decoration-color: var(--section);
+	}
+	details code {
+		border: 2px solid var(--section);
+	}
+	details table { 
+		max-width: 100%;
+		margin: 1rem auto;
+	}
+	details td { 
+		border: 2px solid var(--section);
+	}
